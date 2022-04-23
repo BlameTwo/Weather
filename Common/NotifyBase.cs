@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherTest.Common
+namespace MyNewApp.Common
 {
     public class NotifyBase : INotifyPropertyChanged
     {

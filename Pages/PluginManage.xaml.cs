@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyWidget2.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,18 +13,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-namespace WpfApp1
+using static MyNewApp.Common.PluginBase;
+
+namespace MyNewApp.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// PluginManage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PluginManage : Page
     {
-        public MainWindow()
+        public PluginManage()
         {
             InitializeComponent();
-            WeatherTest.Weather weather = new WeatherTest.Weather();
-            this.Content = weather;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BasicMethods.runcmd("start Plugins");
+        }
+    }
+    public static class MyPlugin
+    {
+        public static List<IPlugin> Plugins;
     }
 }
