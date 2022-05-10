@@ -1,0 +1,76 @@
+﻿<Page x:Class="MyNewApp.Pages.PluginManage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyNewApp.Pages" xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PluginManage">
+
+    <Grid>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <wpfui:Badge FontSize="16" Background="#fff4ce" Margin="2 5 13 2.5">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <wpfui:SymbolIcon FontSize="24" Foreground="#9d5d00" Symbol="ErrorCircle24" Margin="10"/>
+                <TextBlock Foreground="Black" Margin="10">
+                                实验性功能,加载未知来源的小部件可能回造成你的信息泄露！
+                </TextBlock>
+            </StackPanel>
+        </wpfui:Badge>
+        <ScrollViewer Grid.Row="1" Margin="0" VerticalScrollBarVisibility="Auto">
+            <ListView BorderThickness="0" Background="Transparent" ItemsSource="{x:Static local:MyPlugin.Plugins}">
+                <ListView.Resources>
+                    <!-- 重写ListViewItem样式-->
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                    <ContentPresenter Margin="0 2.5"/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.Resources>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <wpfui:CardExpander Icon="PuzzlePiece24" 
+                                           Header="{Binding Name}" 
+                                           Subtitle="{Binding Description}">
+                            <StackPanel Margin="60 10 0 10" Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="FontSize" Value="16"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <StackPanel>
+                                    
+                                    <TextBlock>作者:</TextBlock>
+                                    <TextBlock>版本:</TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="10 0 0 0">
+                                    <TextBlock Text="{Binding Author}"/>
+                                    <TextBlock Text="{Binding Version}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </wpfui:CardExpander>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+
+            </ListView>
+        </ScrollViewer>
+
+        <Button Grid.Row="2" HorizontalAlignment="Right" Margin="20" Click="Button_Click">打开插件文件夹</Button>
+    </Grid>
+
+
+</Page>

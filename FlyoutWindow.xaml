@@ -1,0 +1,35 @@
+﻿<Window x:Class="MyNewApp.FlyoutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyNewApp"
+        LocationChanged="LocationChangedHandler"
+        mc:Ignorable="d" AllowsTransparency="True"
+        WindowStyle="None" 
+        xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+        Title="FlyoutWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        xmlns:common="clr-namespace:WPFUI.Common;assembly=WPFUI" MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        Background="Transparent"
+        >
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem  Icon="{x:Static common:SymbolRegular.ArrowExit20}" Click="MenuItem_Click" Header="暂时关闭">
+            </MenuItem>
+            <MenuItem Icon="{x:Static common:SymbolRegular.Pin24}" Click="MenuItem_Click_3" Header="窗口置顶"/>
+
+            <MenuItem Icon="{x:Static common:SymbolRegular.Window24}" Click="MenuItem_Click_1" Header="打开设置"/>
+            <MenuItem Icon="{x:Static common:SymbolRegular.Dismiss24}" Click="MenuItem_Click_2" Header="退出程序"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Border x:Name="bd" CornerRadius="10" BorderThickness="1" BorderBrush="{StaticResource ControlFillColorSecondaryBrush}">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter  Property="Background" Value="{StaticResource ControlSolidFillColorDefaultBrush}"/>
+            </Style>
+        </Border.Style>
+        <Grid x:Name="Container">
+        
+        </Grid>
+    </Border>
+</Window>

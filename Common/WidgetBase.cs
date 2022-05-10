@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace WeatherTest.Common
+namespace MyNewApp.Common
 {
     public interface IWidgetBase
     {
